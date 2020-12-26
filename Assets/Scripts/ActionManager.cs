@@ -7,6 +7,8 @@ public class ActionManager : MonoBehaviour
     public bool isKeyPicked = false;
     public bool isDoorOpened = false;
 
+    public bool isDoorOpanable = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +18,30 @@ public class ActionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IsGameWon();
+
+        IsKeyPicked();
+
+    }
+
+    private void IsGameWon()
+    {
         if (isDoorOpened)
         {
             Debug.Log("~~~ Jew Won!!! ~~~");
 
         }
 
+    }
+
+    private void IsKeyPicked()
+    {
         if (isKeyPicked)
         {
+            isDoorOpanable = true;
 
         }
-        
+
     }
 
 }
