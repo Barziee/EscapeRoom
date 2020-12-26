@@ -5,6 +5,9 @@ using UnityEngine;
 public class PickupScript : MonoBehaviour
 {
     GameObject pickedObject;
+    public GameObject KeySprite;
+
+    ActionManager actionManager;
 
     private void Update()
     {
@@ -15,11 +18,14 @@ public class PickupScript : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider != null)
+                if (hit.collider.tag == "Object")
                 {
                     var tmpObj = hit.collider.gameObject;
                     Destroy(tmpObj);
 
+
+                    KeySprite.SetActive(true);
+                    ActionManager.isKeyPicked = true;
                 }
 
             }

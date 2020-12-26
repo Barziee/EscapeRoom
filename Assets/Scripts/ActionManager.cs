@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ActionManager : MonoBehaviour
 {
-    public bool isKeyPicked = false;
-    public bool isDoorOpened = false;
+    public static bool isKeyPicked = false;
+    public static bool isDoorOpened = false;
 
     public bool isDoorOpanable = false;
 
@@ -15,33 +15,8 @@ public class ActionManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        IsGameWon();
-
-        IsKeyPicked();
-
+	public static void IsGameWon()
+    { 
+        Debug.Log("~~~ Jew Won!!! ~~~");
     }
-
-    private void IsGameWon()
-    {
-        if (isDoorOpened)
-        {
-            Debug.Log("~~~ Jew Won!!! ~~~");
-
-        }
-
-    }
-
-    private void IsKeyPicked()
-    {
-        if (isKeyPicked)
-        {
-            isDoorOpanable = true;
-
-        }
-
-    }
-
 }
