@@ -1,13 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PickupScript : MonoBehaviour
 {
-    GameObject pickedObject;
     public GameObject KeySprite;
-
-    ActionManager actionManager;
 
     private void Update()
     {
@@ -23,15 +18,12 @@ public class PickupScript : MonoBehaviour
                     var tmpObj = hit.collider.gameObject;
                     Destroy(tmpObj);
 
-
                     KeySprite.SetActive(true);
                     ActionManager.isKeyPicked = true;
+                    Debug.Log("Key picked");
                 }
-
             }
-
         }
-
     }
 
 }
